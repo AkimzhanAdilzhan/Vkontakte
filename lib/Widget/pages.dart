@@ -1,4 +1,5 @@
 //import 'dart:html';
+import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -47,14 +48,28 @@ class _PagesVkState extends State<PagesVk> {
             color: Colors.black,
             child: Column(
               children: [
+                // Image.asset("images/ex.jpg"),
                 _AppBar(),
                 _UserProfileItemRow(),
+
                 _MenuWiget(menuRow: pagesRow),
+
                 _MainMenuMore(),
+                Container(
+                  color: Colors.grey,
+                  height: 1,
+                  width: 363,
+                ),
                 _PadHeaderRow(),
                 _SliderLine(),
+                Container(
+                  color: Colors.grey,
+                  height: 1,
+                  width: 363,
+                ),
                 _PadHeaderGameRow(),
                 _GameSliderLine(),
+
                 _MenuWiget(menuRow: pagesRowDown),
               ],
             ),
@@ -166,46 +181,55 @@ class _UserProfileItemRowState extends State<_UserProfileItemRow> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: Color.fromARGB(223, 44, 44, 44)),
+
+      // color: Color.fromARGB(223, 44, 44, 44),
       height: 68,
-      padding: EdgeInsets.symmetric(horizontal: 12),
+      width: 369,
+
+      //padding: EdgeInsets.symmetric(horizontal: 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              Icon(
-                size: 44,
-                Icons.person,
-                color: Colors.white,
-              ),
-              Container(
-                padding: EdgeInsets.fromLTRB(12, 0, 0, 0),
-                height: 44,
-                width: 286,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 2),
-                      child: Text(
-                        'Akimzhan Kurbanov',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Text(
-                      'Перейти в профиль',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ],
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 4),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 22,
+                  backgroundImage: AssetImage('images/avatar.jpg'),
                 ),
-              ),
-            ],
+                Container(
+                  padding: EdgeInsets.fromLTRB(12, 0, 0, 0),
+                  height: 44,
+                  width: 286,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 2),
+                        child: Text(
+                          'Akimzhan Kurbanov',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(
+                        'Перейти в профиль',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           Icon(
             Icons.chevron_right,
@@ -233,7 +257,7 @@ class _MainMenuMore extends StatelessWidget {
           ),
           SizedBox(width: 15),
           Text(
-            'Еще',
+            'Ещё',
             style: TextStyle(
                 color: Colors.blue, fontSize: 15, fontWeight: FontWeight.bold),
           ),
@@ -289,6 +313,20 @@ class _SliderLine extends StatefulWidget {
 }
 
 class _SliderLineState extends State<_SliderLine> {
+  List<SliderRowData> slidergamedata = [
+    SliderRowData('images/ex.jpg', 'g'),
+    SliderRowData('images/ex.jpg', 'q'),
+    SliderRowData('images/ex.jpg', 'e'),
+    SliderRowData('images/ex.jpg', 'g'),
+    SliderRowData('images/ex.jpg', 'h'),
+    SliderRowData('images/ex.jpg', 'hj'),
+    SliderRowData('images/ex.jpg', 'jhjh'),
+    SliderRowData('images/ex.jpg', 'hhh'),
+    SliderRowData('images/ex.jpg', 'jjj'),
+    SliderRowData('images/ex.jpg', 'vvv'),
+    SliderRowData('images/ex.jpg', 'nbng'),
+    SliderRowData('images/ex.jpg', 'vvn'),
+  ];
   @override
   Widget build(BuildContext context) {
     // final image = AssetImage('ex.jpg');
@@ -301,134 +339,7 @@ class _SliderLineState extends State<_SliderLine> {
         child: (ListView(
           scrollDirection: Axis.horizontal,
           children: [
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'SuperUp',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'GeoPuzzle',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Geolab',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'GGPW',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'GGPW',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'GGPW',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'GGPW',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'GGPW',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
+            _SliderWiget(sliderRow: slidergamedata),
           ],
         )),
       ),
@@ -482,146 +393,92 @@ class _GameSliderLine extends StatefulWidget {
 }
 
 class _GameSliderLineState extends State<_GameSliderLine> {
+  List<SliderRowData> sliderdata = [
+    SliderRowData('images/ex.jpg', 'Первая'),
+    SliderRowData('images/ex.jpg', 'Вторая'),
+    SliderRowData('images/ex.jpg', 'Третья'),
+    SliderRowData('images/ex.jpg', '4'),
+    SliderRowData('images/ex.jpg', '5'),
+    SliderRowData('images/ex.jpg', '6'),
+    SliderRowData('images/ex.jpg', '7'),
+    SliderRowData('images/ex.jpg', '8'),
+    SliderRowData('images/ex.jpg', '9'),
+    SliderRowData('images/ex.jpg', '10'),
+    SliderRowData('images/ex.jpg', '11'),
+    SliderRowData('images/ex.jpg', '12'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(12, 4, 4, 0),
+      height: 106,
+      child: (ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          _SliderWiget(sliderRow: sliderdata),
+        ],
+      )),
+    );
+  }
+}
+
+class SliderRowData {
+  final String img;
+  final String text;
+
+  SliderRowData(this.img, this.text);
+}
+
+class _SliderWiget extends StatelessWidget {
+  final List<SliderRowData> sliderRow;
+  const _SliderWiget({
+    Key? key,
+    required this.sliderRow,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: sliderRow.map((data) => _SliderWigetRow(data: data)).toList(),
+      ),
+    );
+  }
+}
+
+class _SliderWigetRow extends StatelessWidget {
+  final SliderRowData data;
+  const _SliderWigetRow({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(12, 4, 4, 0),
-      child: Container(
-        //padding: EdgeInsets.fromLTRB(12, 4, 4, 0),
-        height: 106,
-        child: (ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Маленький...',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.all(1),
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                image: DecorationImage(
+                    image: AssetImage(data.img), fit: BoxFit.cover)),
+          ),
+          Container(
+            child: Text(
+              data.text,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+              ),
             ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'День сур...',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Слияние...',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Хватай за...',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Арканоид',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Бегу...',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Новый орлеан',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Icon(
-                  Icons.abc,
-                  color: Colors.white,
-                  size: 56,
-                ),
-                Text(
-                  'Дайджест',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        )),
+          ),
+        ],
       ),
     );
   }

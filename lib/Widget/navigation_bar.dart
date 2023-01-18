@@ -14,15 +14,19 @@ class MainScreenWidget extends StatefulWidget {
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
 
-  // static const List<Widget> _widgetOptions = <Widget>[
-  //   Scaffold(),
-  //   Scaffold(
-  //     body: MsgWidget(),
-  //   ),
-  //   Scaffold(
-  //     body: Center(child: Text('data3')),
-  //   ),
-  // ];
+  static List<Widget> _widgetOptions = <Widget>[
+    PagesVk(),
+    Scaffold(
+      body: MsgWidget(),
+    ),
+    MsgWidget(),
+    Scaffold(
+      body: Center(child: Text('data4')),
+    ),
+    Scaffold(
+      body: Center(child: Text('data5')),
+    ),
+  ];
 
   void OnselectTab(int index) {
     if (_selectedTab == index) return;
@@ -34,15 +38,21 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PagesVk(),
+      body: _widgetOptions[_selectedTab],
+
+      // body: PagesVk(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
         backgroundColor: Colors.black,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         iconSize: 28,
-        selectedFontSize: 0,
-        unselectedFontSize: 0,
+        // selectedFontSize: 0,
+        // unselectedFontSize: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
+
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -62,11 +72,21 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
             ),
             label: '',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.notifications,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.more_horiz,
+            ),
+            label: '',
+          ),
         ],
         onTap: OnselectTab,
       ),
-
-      // body: _widgetOptions[_selectedTab],
     );
   }
 }
