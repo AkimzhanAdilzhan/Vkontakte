@@ -4,6 +4,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:vk_com/Widget/pages.dart';
 import 'package:vk_com/Widget/messages.dart';
 
+import 'news_pages.dart';
+import 'notif_comment.dart';
+import 'notifications.dart';
+
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
 
@@ -15,17 +19,13 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    PagesVk(),
+    NewsPagesWidget(),
     Scaffold(
-      body: MsgWidget(),
+      body: SearcPageWidget(),
     ),
     MsgWidget(),
-    Scaffold(
-      body: Center(child: Text('data4')),
-    ),
-    Scaffold(
-      body: Center(child: Text('data5')),
-    ),
+    NotifCommentWidget(),
+    PagesVk(),
   ];
 
   void OnselectTab(int index) {
